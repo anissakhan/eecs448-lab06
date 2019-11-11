@@ -1,0 +1,13 @@
+/**
+*	@file buglist.cpp
+*	@author Anissa Khan
+*	@date 2019.11.11
+*/
+
+Bugs:
+
+1. Enqueue/PeekFront bug: Enqueue either does not update the m_front pointer or is enqueuing
+the element to the front of the queue instead of to the back. The front pointer stays
+the most recent element added to the list. example: when enqueue(2) then enqueue(3),
+peekFront returns 3, but it should return 2. when enqueue(2) then enqueue(3) then
+enqueue(4), peekFront returns 4, but it should return 2.
