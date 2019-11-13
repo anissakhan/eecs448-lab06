@@ -20,26 +20,21 @@ int main()
 	t.test3();
 	t.test4();
 	t.test5();
+	t.test6();
+	t.test7();
+	t.test8();
+	t.test9();
+	t.test10();
 	t.test11();
-	t.test12();
-	
 
-	std::cout<<"hello.\n";
-
-	std::cout<<"Queue is empty: 1=true; 0=false: "<<q.isEmpty()<<std::endl;
-
-	try
-	{
-		std::cout<<"front of queue: "<<q.peekFront()<<std::endl;
-	}
-	catch(std::runtime_error& rte)
-{
-	std::cout<<rte.what()<<std::endl;
+	return(0);
 }
 
-q.enqueue(2);
-q.enqueue(3);
-q.enqueue(4);
+//unused TEST CODE BELOW: to use, move into main
+/*
+std::cout<<"\n\nhello.\n";
+
+std::cout<<"Queue is empty: 1=true; 0=false: "<<q.isEmpty()<<std::endl;
 
 try
 {
@@ -50,6 +45,16 @@ catch(std::runtime_error& rte)
 std::cout<<rte.what()<<std::endl;
 }
 
+q.enqueue(2);
+q.enqueue(3);
+q.enqueue(4);
 
-	return(0);
+try
+{
+std::cout<<"front of queue: "<<q.peekFront()<<std::endl;
 }
+catch(std::runtime_error& rte)
+{
+std::cout<<rte.what()<<std::endl;
+}
+*/

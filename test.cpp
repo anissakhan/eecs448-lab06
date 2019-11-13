@@ -56,7 +56,7 @@ void test::test3()
     }
     q.dequeue();
 }
-//tests postcondition of enqueue
+//tests postcondition of enqueue: enqueueing a value makes the queue not empty
 void test::test4()
 {
   std::cout<<"Test 4: Enqueuing a value makes the Queue not empty: ";
@@ -71,6 +71,7 @@ void test::test4()
   }
   q.dequeue();
 }
+//tests postcondition of enqueue: enqueuing adds a value to the back of queue
 void test::test5()
 {
   std::cout<<"Test 5: Enqueuing adds a value to the back of the queue : ";
@@ -87,35 +88,64 @@ void test::test5()
   q.dequeue();
   q.dequeue();
 }
-//tests postcondition of dequeue
+//tests postcondition of dequeue when a list of 1
 void test::test6()
 {
-
+  std::cout<<"Test 6: Dequeue from a queue with only 1 element removes the value at the front: ";
+  q.enqueue(2);
+  if(q.peekFront()==2)
+  {
+    q.dequeue();
+    if(q.isEmpty())
+    {
+      std::cout<<"PASSED\n";
+    }
+  }
+  else
+  {
+    std::cout<<"FAILED\n";
+  }
 }
-//tests return of dequeue
+//tests postcondition of dequeue when a list of more than 1 element
 void test::test7()
 {
-
+  std::cout<<"Test 7: Dequeue from a queue with more than 1 element removes the value at the front: ";
+  q.enqueue(2);
+  q.enqueue(3);
+  q.enqueue(4);
+  q.enqueue(5);
+  q.dequeue();//should remove 2, so peekFront should return 3 but since enqueue is broken, will remove 5 and peekFront will return 4
+  //std::cout<<"peek front:"<<q.peekFront()<<std::endl;
+  if(q.peekFront()==3)
+  {
+    std::cout<<"PASSED\n";
+  }
+  else
+  {
+    std::cout<<"FAILED\n";
+  }
+  q.dequeue();
+  q.dequeue();
+  q.dequeue();
 }
 //tests thrown error of dequeue
 void test::test8()
 {
-
-}
-//tests precondition and thrown error of peekFront
-void test::test9()
-{
-
-}
-//tests postcondition of peekFront
-void test::test10()
-{
-
+  std::cout<<"Test 8: Dequeue throws an error when called on an empty: ";
+  try
+    {
+       q.dequeue();
+       std::cout<<"FAILED\n";
+    }
+  catch(std::runtime_error& rte)
+    {
+      std::cout<<"PASSED\n";
+    }
 }
 //tests return of peekFront when only add 1 value
-void test::test11()
+void test::test9()
 {
-  std::cout<<"Test 11: PeekFront returns correct value after enqueuing 1 value: ";
+  std::cout<<"Test 9: PeekFront returns correct value after enqueuing 1 value: ";
   q.enqueue(2);
   if(q.peekFront()==2)
   {
@@ -125,9 +155,39 @@ void test::test11()
   {
     std::cout<<"FAILED\n";
   }
+  q.dequeue();
 }
 //tests return of peekFront when add multiple values
-void test::test12()
+void test::test10()
 {
-  std::cout<<"Test 12: PeekFront returns correct value after enqueuing multiple values: ";
+  std::cout<<"Test 10: PeekFront returns correct value after enqueuing multiple values: ";
+  q.enqueue(2);
+  q.enqueue(3);
+  q.enqueue(4);//peekFront should return 2
+
+  if(q.peekFront()==2)
+  {
+    std::cout<<"PASSED\n";
+  }
+  else
+  {
+    std::cout<<"FAILED\n";
+  }
+  q.dequeue();
+  q.dequeue();
+  q.dequeue();
+}
+//tests thrown error of peekFront which is the same as its precondition
+void test::test11()
+{
+  std::cout<<"Test 11: PeekFront throws an error when called on an empty queue: ";
+  try
+    {
+	     q.peekFront();
+       std::cout<<"FAILED\n";
+    }
+  catch(std::runtime_error& rte)
+    {
+      std::cout<<"PASSED\n";
+    }
 }

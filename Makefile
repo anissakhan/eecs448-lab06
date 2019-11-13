@@ -8,4 +8,4 @@ test.o: test.h test.cpp
 	g++ -std=c++11 -g -Wall -c test.cpp
 
 clean:
-	rm main.o QueueDemo *~
+	rm main.o QueueDemo test.o

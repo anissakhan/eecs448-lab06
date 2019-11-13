@@ -21,29 +21,26 @@ public:
 
   //tests that an empty queue is created
   void test1();
-  //tests return value of isEmpty()
+  //tests return value of isEmpty() when list is empty
   void test2();
   //tests return value of isEmpty() when list is not empty
   void test3();
-  //tests postcondition of enqueue
+  //tests postcondition of enqueue: enqueueing a value makes the queue not empty
   void test4();
-
+  //tests postcondition of enqueue: enqueuing adds a value to the back of queue
   void test5();
-  //tests postcondition of dequeue
+  //tests postcondition of dequeue when a list of 1
   void test6();
-  //tests return of dequeue
+  //tests postcondition of dequeue when a list of more than 1 element
   void test7();
   //tests thrown error of dequeue
   void test8();
-  //tests precondition and thrown error of peekFront
-  void test9();
-  //tests postcondition of peekFront
-  void test10();
   //tests return of peekFront when only add 1 value
+  void test9();
+  //tests return of peekFront when add multiple values
+  void test10();
+  //tests thrown error of peekFront which is the same as its precondition
   void test11();
-  //tests peekFront when add more than one value
-  void test12();
-
 
 
 };
