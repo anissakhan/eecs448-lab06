@@ -1,7 +1,7 @@
 /**
 *	@file main.cpp
-*	@author John Gibbons
-*	@date 2014.04.02
+*	@author Anissa Khan
+*	@date 2019.11.11
 */
 
 #include <iostream>
@@ -26,6 +26,8 @@ int main()
 	t.test9();
 	t.test10();
 	t.test11();
+        t.test12();
+	t.test13();
 
 	return(0);
 }

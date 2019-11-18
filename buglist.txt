@@ -6,19 +6,14 @@
 
 Bugs:
 
-1. Enqueue/PeekFront bug: Enqueue either does not update the m_front pointer or is enqueuing
-the element to the front of the queue instead of to the back. The front pointer stays at
-the most recent element added to the list. example: when enqueue(2) then enqueue(3),
-peekFront returns 3, but it should return 2. when enqueue(2) then enqueue(3) then
-enqueue(4), peekFront returns 4, but it should return 2.
+1. Enqueue/PeekFront bug: Enqueue either does not update the m_front pointer or is enqueuing the element to the front of the queue instead of to the back. The front pointer stays at the most recent element added to the list. example: when enqueue(2) then enqueue(3),peekFront returns 3, but it should return 2. when enqueue(2) then enqueue(3) then enqueue(4), peekFront returns 4, but it should return 2.
 
-2. The documentation says there dequeue should return the value of the entry at the
-front of the queue but it doesn't. Dequeue is a void function--it returns nothing.
+2. The documentation says that dequeue should return the value of the entry at the front of the queue but it doesn't. Dequeue is a void function--it returns nothing.
 
-3. Dequeue: Dequeue doesn't work because enqueue has a bug in it. If enqueue
-did not have a bug, the dequeue would work as expected. Test 7 fails because Enqueue
-is broken. I could make test 7 pass by adjusting for the behavior of enqueue.
+3. Dequeue: Dequeue does not have a bug in it but it doesn't work as expected because enqueue has a bug in it. If enqueue did not have a bug, the dequeue would work as expected. Test 7 fails because Enqueue is broken. I could make test 7 pass by adjusting for the behavior of enqueue.
 
-4. PeekFront: Doesn't work because enqueue has a bug in it. If enqueue did not have
-a bug, peekFront would work as expected. Test 10 fails because enqueue is broken.
-I could make test 10 pass by adjusting for the behavior of enqueue.
+4. PeekFront: PeekFront does not have a bug in it but it doesn't work because enqueue has a bug in it. If enqueue did not have a bug, peekFront would work as expected. Test 10 fails because enqueue is broken. I could make test 10 pass by adjusting for the behavior of enqueue.
+
+5. The destructor: Does not properly deallocate all of the nodes that are initially allocated. After enqueuing several items in the list and running valgrind, there are significant memory leaks. This means there is a bug in the destructor.
+
+ 

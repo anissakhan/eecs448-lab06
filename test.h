@@ -41,7 +41,11 @@ public:
   void test10();
   //tests thrown error of peekFront which is the same as its precondition
   void test11();
-
+  //tests isEmpty() returns true after enqueuing 1 item and then dequeuing it.
+  void test12();
+  //Enqueues some things to test the destructor for memory leaks.
+  //Note: this test is run but does not print anything because it is tested using valgrind only
+  void test13();
 
 };
 

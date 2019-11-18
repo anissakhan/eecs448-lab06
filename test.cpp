@@ -191,3 +191,26 @@ void test::test11()
       std::cout<<"PASSED\n";
     }
 }
+
+void test::test12()
+{
+   std::cout<<"Test 12:  After enqueueing 1 item and then dequeuing that item, isEmpty() returns true: ";
+   q.enqueue(2);
+   q.dequeue();
+   if(q.isEmpty())
+   {
+   	std::cout<<"PASSED\n";
+   }
+   else
+   {
+   	std::cout<<"FAILED\n";
+   }
+}
+
+void test::test13()
+{
+   std::cout<<"Test 13: Test for destructor: to see memory leaks, run with valgrind\n";
+   q.enqueue(2);
+   q.enqueue(3);
+   q.enqueue(4);
+}
